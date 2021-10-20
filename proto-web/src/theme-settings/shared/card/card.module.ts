@@ -1,23 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
-  FuryCard,
-  FuryCardActions,
-  FuryCardContent,
-  FuryCardHeader,
-  FuryCardHeaderActions,
-  FuryCardHeaderSubTitle,
-  FuryCardHeaderTitle
+  ProtoCard,
+  ProtoCardActions,
+  ProtoCardContent,
+  ProtoCardHeader,
+  ProtoCardHeaderActions,
+  ProtoCardHeaderSubTitle,
+  ProtoCardHeaderTitle
 } from './card.component';
 
 const cardComponents = [
-  FuryCard,
-  FuryCardHeader,
-  FuryCardHeaderTitle,
-  FuryCardHeaderSubTitle,
-  FuryCardHeaderActions,
-  FuryCardContent,
-  FuryCardActions
+  ProtoCard,
+  ProtoCardHeader,
+  ProtoCardHeaderTitle,
+  ProtoCardHeaderSubTitle,
+  ProtoCardHeaderActions,
+  ProtoCardContent,
+  ProtoCardActions
 ];
 
 @NgModule({
@@ -31,5 +31,5 @@ const cardComponents = [
     ...cardComponents
   ]
 })
-export class FuryCardModule {
+export class ProtoCardModule {
 }

@@ -1,10 +1,10 @@
 @import "var";
 
-.fury-list-table {
+.proto-list-table {
   display: flex;
   flex-direction: column;
 
-  .fury-list-header {
+  .proto-list-header {
     padding-left: $spacing;
     padding-right: $spacing;
     height: $card-header-height;
@@ -17,7 +17,7 @@
       padding-bottom: $spacing;
     }
 
-    .fury-list-name {
+    .proto-list-name {
       font-size: 20px;
       line-height: 32px;
       font-weight: 500;
@@ -28,7 +28,7 @@
       }
     }
 
-    .fury-filter-input {
+    .proto-filter-input {
       font-size: 16px;
       line-height: 1.125;
       border: none;
@@ -39,7 +39,7 @@
       }
     }
 
-    .fury-filter-input-icon {
+    .proto-filter-input-icon {
       width: 1.2em;
       vertical-align: bottom;
       height: 22px;

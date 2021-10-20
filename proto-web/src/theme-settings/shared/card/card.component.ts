@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, Directive, Input, ViewEncapsulation
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class protoCard {
+export class ProtoCard {
 }
 
 // noinspection TsLint

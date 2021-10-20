@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[furyTitle],fury-title',
+  selector: '[protoTitle],proto-title',
   host: {
-    class: 'fury-title'
+    class: 'proto-title'
   }
 })
 export class TitleDirective {

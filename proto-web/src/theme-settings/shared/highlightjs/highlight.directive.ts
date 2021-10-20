@@ -7,7 +7,7 @@ hljs.registerLanguage('xml', xml);
 hljs.registerLanguage('typescript', typescript);
 
 @Directive({
-  selector: 'code[furyHighlight]'
+  selector: 'code[protoHighlight]'
 })
 export class HighlightDirective implements AfterViewInit {
 

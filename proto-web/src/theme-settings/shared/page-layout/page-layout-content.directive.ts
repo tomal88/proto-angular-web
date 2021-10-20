@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[furyPageLayoutContent],fury-page-layout-content',
+  selector: '[protoPageLayoutContent],proto-page-layout-content',
   host: {
-    class: 'fury-page-layout-content'
+    class: 'proto-page-layout-content'
   }
 })
 export class PageLayoutContentDirective {

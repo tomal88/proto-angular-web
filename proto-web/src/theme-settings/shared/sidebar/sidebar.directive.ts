@@ -5,11 +5,11 @@ import { BackdropDirective } from '../backdrop/backdrop.directive';
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
-  selector: '[furySidebar],fury-sidebar',
+  selector: '[protoSidebar],proto-sidebar',
   host: {
-    class: 'fury-sidebar'
+    class: 'proto-sidebar'
   },
-  exportAs: 'furySidebar'
+  exportAs: 'protoSidebar'
 })
 export class SidebarDirective implements AfterViewInit, OnDestroy {
 
@@ -69,11 +69,11 @@ export class SidebarDirective implements AfterViewInit, OnDestroy {
   }
 
   enableScrollblock() {
-    this.document.body.classList.add('fury-scrollblock');
+    this.document.body.classList.add('proto-scrollblock');
   }
 
   disableScrollblock() {
-    this.document.body.classList.remove('fury-scrollblock');
+    this.document.body.classList.remove('proto-scrollblock');
   }
 
   open() {

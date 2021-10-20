@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[furyPage],fury-page',
+  selector: '[protoPage],proto-page',
   host: {
-    class: 'fury-page'
+    class: 'proto-page'
   }
 })
 export class PageDirective {

@@ -1,12 +1,12 @@
-.fury-page-layout {
+.proto-page-layout {
 
 }
 
-.fury-page-layout-header {
+.proto-page-layout-header {
   background: $theme-color-primary;
   color: $theme-color-primary-contrast;
 
-  fury-breadcrumbs {
+  proto-breadcrumbs {
     .crumb, .link {
       color: $light-secondary-text;
 

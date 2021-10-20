@@ -1,7 +1,7 @@
 @use 'sass:math';
 @import "var";
 
-.fury-card {
+.proto-card {
   border-radius: $border-radius;
   overflow: hidden;
   display: flex;
@@ -10,13 +10,13 @@
   max-width: 100%;
 }
 
-.fury-card > .mat-tab-group {
+.proto-card > .mat-tab-group {
   .mat-tab-label {
     height: $card-header-height;
   }
 }
 
-.fury-card-header {
+.proto-card-header {
   padding: $spacing;
   display: flex;
   justify-content: flex-start;
@@ -25,12 +25,12 @@
   white-space: nowrap;
   overflow: hidden;
 
-  .fury-card-header-heading-group {
+  .proto-card-header-heading-group {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
-    .fury-card-header-heading {
+    .proto-card-header-heading {
       white-space: nowrap;
       font: var(--font-subheading-2);
 
@@ -41,14 +41,14 @@
       align-content: center;
     }
 
-    .fury-card-header-subheading {
+    .proto-card-header-subheading {
       white-space: nowrap;
       font-size: 13px;
       font: var(--font-body-1);
     }
   }
 
-  .fury-card-header-actions {
+  .proto-card-header-actions {
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -56,7 +56,7 @@
   }
 }
 
-.fury-card-content {
+.proto-card-content {
   padding: 0 $spacing $spacing;
   flex: 1 1 auto;
   display: flex;
@@ -64,7 +64,7 @@
   overflow: hidden;
 }
 
-.fury-card-actions {
+.proto-card-actions {
   padding: math.div($spacing, 3) math.div($spacing, 1.5);
   display: flex;
   flex-direction: row;
@@ -73,7 +73,7 @@
     margin-left: math.div($spacing, 3);
   }
 
-  &.fury-card-actions-align-end {
+  &.proto-card-actions-align-end {
     justify-content: flex-end;
   }
 }

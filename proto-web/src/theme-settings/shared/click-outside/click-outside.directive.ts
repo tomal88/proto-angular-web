@@ -1,7 +1,7 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
-  selector: '[furyClickOutside]'
+  selector: '[protoClickOutside]'
 })
 export class ClickOutsideDirective {
 
@@ -9,7 +9,7 @@ export class ClickOutsideDirective {
   }
 
   @Output()
-  public furyClickOutside = new EventEmitter<MouseEvent>();
+  public protoClickOutside = new EventEmitter<MouseEvent>();
 
   @HostListener('document:click', ['$event', '$event.target'])
   public onClick(event: MouseEvent, targetElement: HTMLElement): void {
@@ -19,7 +19,7 @@ export class ClickOutsideDirective {
 
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside) {
-      this.furyClickOutside.emit(event);
+      this.protoClickOutside.emit(event);
     }
   }
 

@@ -2,12 +2,12 @@ import { AfterContentInit, Component, ElementRef, Input, NgZone, OnDestroy } fro
 import * as SimpleBar from 'simplebar';
 
 @Component({
-  selector: 'fury-scrollbar',
+  selector: 'proto-scrollbar',
   template: `
     <ng-content></ng-content>`,
   styleUrls: ['./scrollbar.component.scss'],
   host: {
-    class: 'fury-scrollbar'
+    class: 'proto-scrollbar'
   },
 })
 export class ScrollbarComponent implements AfterContentInit, OnDestroy {

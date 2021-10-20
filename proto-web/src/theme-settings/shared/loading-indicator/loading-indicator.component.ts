@@ -4,7 +4,7 @@ import { debounce } from 'rxjs/operators';
 import { PendingInterceptorService } from './pending-interceptor.service';
 
 @Component({
-  selector: 'fury-loading-indicator',
+  selector: 'proto-loading-indicator',
   templateUrl: './loading-indicator.component.html',
   styleUrls: ['./loading-indicator.component.scss']
 })

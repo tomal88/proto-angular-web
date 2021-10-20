@@ -1,9 +1,9 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
-  selector: '[furyPageLayout],fury-page-layout',
+  selector: '[protoPageLayout],proto-page-layout',
   host: {
-    class: 'fury-page-layout'
+    class: 'proto-page-layout'
   }
 })
 export class PageLayoutDirective {
@@ -12,12 +12,12 @@ export class PageLayoutDirective {
 
   constructor() { }
 
-  @HostBinding('class.fury-page-layout-card')
+  @HostBinding('class.proto-page-layout-card')
   get isCard() {
     return this.mode === 'card';
   }
 
-  @HostBinding('class.fury-page-layout-simple')
+  @HostBinding('class.proto-page-layout-simple')
   get isSimple() {
     return this.mode === 'simple';
   }

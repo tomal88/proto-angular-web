@@ -1,20 +1,20 @@
 @use '~@angular/material' as mat;
 
-fury-list {
+proto-list {
   @include mat.elevation($elevation);
   border-radius: $border-radius;
   overflow: auto;
   display: flex;
 
-  .fury-list-table {
+  .proto-list-table {
     flex: 1 1 auto;
   }
 
-  .fury-list-header {
+  .proto-list-header {
     background: $theme-card;
     border-bottom: 1px solid $theme-divider;
 
-    .fury-filter-input {
+    .proto-filter-input {
       background: $theme-card;
       color: currentColor;
 
@@ -23,11 +23,11 @@ fury-list {
       }
     }
 
-    .fury-filter-input-icon, .fury-column-filter {
+    .proto-filter-input-icon, .proto-column-filter {
       color: $theme-icon;
     }
 
-    .fury-list-name {
+    .proto-list-name {
       border-right: 1px solid $theme-divider;
     }
   }
