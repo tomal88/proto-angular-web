@@ -11,7 +11,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { BreadcrumbsModule } from './shared/breadcrumbs/breadcrumbs.module';
 import { TitleModule } from './shared/title/title.module';
 import { PageModule } from './shared/page/page.module';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
@@ -24,7 +23,6 @@ import { PageLayoutModule } from './shared/page-layout/page-layout.module';
     CommonModule
   ],
   exports: [
-    BreadcrumbsModule,
     TitleModule,
     PageModule,
     SidebarModule,
