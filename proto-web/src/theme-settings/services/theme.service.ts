@@ -20,7 +20,7 @@ export interface ThemeConfig {
 })
 export class ThemeService {
 
-  private _themeSubject = new BehaviorSubject<[Theme, Theme]>([null, 'proto-default']);
+  private _themeSubject = new BehaviorSubject<[Theme, Theme]>(['proto-default', 'proto-default']);
   theme$ = this._themeSubject.asObservable();
   activeTheme$ = this.theme$.pipe(
     map(theme => theme[1])

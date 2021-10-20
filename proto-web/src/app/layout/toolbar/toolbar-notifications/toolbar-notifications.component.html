@@ -1,0 +1,37 @@
+<div (protoClickOutside)="onClickOutside()" class="toolbar-notifications"
+     fxFlex="grow" fxLayout="row" fxLayoutAlign="start center">
+  <button (click)="toggleDropdown()" [class.open]="isOpen" class="button"
+          fxFlex="grow" mat-button type="button">
+    <mat-icon [matBadgeHidden]="notifications.length === 0" [matBadge]="notifications.length" class="icon">
+      notifications_active
+    </mat-icon>
+  </button>
+
+  <div [class.open]="isOpen" class="dropdown">
+    <proto-card>
+      <proto-card-header class="dropdown-header">
+        <proto-card-header-heading>
+          Notifications
+        </proto-card-header-heading>
+        <proto-card-header-subheading>
+          You have {{ notifications.length }} new notifications.
+        </proto-card-header-subheading>
+
+        <proto-card-header-actions>
+          <button mat-icon-button type="button">
+            <mat-icon class="icon">settings</mat-icon>
+          </button>
+        </proto-card-header-actions>
+      </proto-card-header>
+
+      <proto-card-content class="dropdown-card-content">
+        
+      </proto-card-content>
+
+
+      <proto-card-actions (click)="markAllAsRead()" class="dropdown-footer" matRipple>
+        Mark all as read
+      </proto-card-actions>
+    </proto-card>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<proto-loading-indicator></proto-loading-indicator>
+<proto-backdrop #backdrop="protoBackdrop"></proto-backdrop>
+<proto-config-panel-toggle (openConfig)="openConfigPanel()"></proto-config-panel-toggle>
+
+<!-- QUICKPANEL -->
+<proto-sidebar #configPanel="protoSidebar" [backdrop]="backdrop" [invisibleBackdrop]="true" position="right">
+  <proto-config-panel></proto-config-panel>
+</proto-sidebar>
+<!-- END QUICKPANEL -->
+
+<div class="container" fxLayout="column">
+  <mat-sidenav-container autosize fxFlex>
+
+    <!-- SIDENAV -->
+    <mat-sidenav (closedStart)="closeSidenav()"
+                 (openedStart)="openSidenav()"
+                 [mode]="sidenavMode$ | async"
+                 [opened]="sidenavOpen$ | async"
+                 *ngIf="sideNavigation$ | async"
+                 class="proto-collapsable-sidenav">
+      <proto-sidenav [collapsed]="sidenavCollapsed$ | async" [expanded]="sidenavExpanded$ | async"></proto-sidenav>
+    </mat-sidenav>
+    <!-- END SIDENAV -->
+
+    <mat-sidenav-content class="content-container" fxLayout="column">
+
+      <!-- CONTENT -->
+      <div [class.scroll-disabled]="scrollDisabled$ | async"
+           cdkScrollable
+           class="content"
+           fxFlex="auto"
+           fxLayout="column">
+
+        <div class="content-inner" fxFlex="auto">
+          <router-outlet></router-outlet>
+        </div>
+
+        <ng-container *ngIf="(footerPosition$ | async) === 'static'">
+          <ng-container *ngTemplateOutlet="footer"></ng-container>
+        </ng-container>
+      </div>
+      <!-- END CONTENT -->
+
+      <ng-container *ngIf="(footerPosition$ | async) === 'fixed'">
+        <ng-container *ngTemplateOutlet="footer"></ng-container>
+      </ng-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <ng-container *ngIf="(footerPosition$ | async) === 'above-fixed'">
+    <ng-container *ngTemplateOutlet="footer"></ng-container>
+  </ng-container>
+</div>
+
+
+<ng-template #footer>
+  <!-- FOOTER -->
+  <proto-footer fxFlex="none"></proto-footer>
+  <!-- END FOOTER -->
+</ng-template>
+
