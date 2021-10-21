@@ -7,8 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PendingInterceptorModule } from 'src/theme-settings/shared/loading-indicator/pending-interceptor.module';
 import { MatFormFieldDefaultOptions, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatSnackBarConfig, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -21,7 +27,17 @@ import { LayoutModule } from './layout/layout.module';
 
     AppRoutingModule,
     LayoutModule,
-    PendingInterceptorModule
+    PendingInterceptorModule,
+    TranslateModule.forRoot(
+      {
+        defaultLanguage: 'en',
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+        }
+      }
+    ),
   ],
   providers: [
     {

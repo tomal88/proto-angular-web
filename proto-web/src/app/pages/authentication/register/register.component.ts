@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fadeInUpAnimation } from '../../../../theme-settings/animations/fade-in-up.animation';
 
@@ -11,11 +11,18 @@ import { fadeInUpAnimation } from '../../../../theme-settings/animations/fade-in
 })
 export class RegisterComponent implements OnInit {
 
+  matchPassword = (control: FormControl): { [s: string]: boolean } => {
+    if (!control.value) {
+        return { required: true };
+    } else if (control.value !== this.form.controls.password.value) {
+        return { confirm: true, error: true };
+    } return {}
+  }
+
   form: FormGroup = this.fb.group({
-    name: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-    passwordConfirm: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]],
+    confirmPassword: ['', [Validators.required, this.matchPassword]],
   });
 
   inputType = 'password';

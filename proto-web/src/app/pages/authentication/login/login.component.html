@@ -7,35 +7,39 @@
         </svg>
       </div>
     </div>
-    <form class="padding" fxLayout="column" fxLayoutGap="16px" [formGroup]="form">
+    <form class="padding" fxLayout="column" fxLayoutGap="16px" [formGroup]="form" (ngSubmit)="send()">
+      <div class="alert-danger" *ngIf="errorText">
+        <div>{{errorText}}</div>
+      </div>
       <div fxFlex="auto" fxLayout="column">
         <mat-form-field fxFlex="grow">
-          <mat-label>E-Mail</mat-label>
+          <mat-label>{{'Email_Text' | translate}}</mat-label>
           <input matInput required formControlName="email">
-          <mat-error *ngIf="checkError('email', 'required')">We need an email address to log you in</mat-error>
+          <mat-error *ngIf="checkError('email', 'required')">{{'Email_Required_Text' | translate}}</mat-error>
+          <mat-error *ngIf="checkError('email', 'email')">{{'Not_Valid_Email_Text' | translate}}</mat-error>
         </mat-form-field>
         <mat-form-field fxFlex="grow">
-          <mat-label>Password</mat-label>
+          <mat-label>{{'Password_Text' | translate}}</mat-label>
           <input matInput [type]="inputType" formControlName="password" required>
-          <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" matTooltip="Toggle Visibility">
-            <mat-icon *ngIf="visible">visibility</mat-icon>
-            <mat-icon *ngIf="!visible">visibility_off</mat-icon>
+          <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()">
+            <mat-icon *ngIf="visible"></mat-icon>
+            <mat-icon *ngIf="!visible"></mat-icon>
           </button>
-          <mat-hint>Click the eye to toggle visibility</mat-hint>
-          <mat-error *ngIf="checkError('password', 'required')">We need a password to log you in</mat-error>
+          <mat-error *ngIf="checkError('password', 'required')">{{'Password_Required_Text' | translate}}</mat-error>
+          <mat-error *ngIf="checkError('password', 'maxlength')">{{'Password_Max_Length_Text' | translate}}</mat-error>
         </mat-form-field>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="space-between center">
-        <mat-checkbox class="caption">Remember Me</mat-checkbox>
-        <a class="caption" [routerLink]="['/forgot-password']">Forgot Password?</a>
+        <mat-checkbox class="caption">{{'Remember_Me_Text' | translate}}</mat-checkbox>
+        <a class="caption" [routerLink]="['/forgot-password']">{{'Forgot_Password_Text' | translate}}</a>
       </div>
-      <button type="button" color="primary" mat-raised-button (click)="send()">
-        SIGN IN
+      <button type="submit" color="primary" mat-raised-button [disabled]="isLoading || !form.valid">
+        {{'Sign_In_Text' | translate}}
       </button>
       <p class="secondary-text text-center">
-        Don't have an account?<br/>
-        <a [routerLink]="['/register']">Click here to create one</a>
+        {{'Dont_Have_Account_Text' | translate }}<br/>
+        <a [routerLink]="['/register']">{{'Create_Account_Hint_Text' | translate}}</a>
       </p>
     </form>
   </div>

@@ -7,49 +7,46 @@
         </svg>
       </div>
     </div>
-    <div class="padding" fxLayout="column" fxLayoutGap="16px" [formGroup]="form">
+    <form class="padding" fxLayout="column" fxLayoutGap="16px" [formGroup]="form">
       <div fxFlex="auto" fxLayout="column">
         <mat-form-field fxFlex="grow">
-          <mat-label>Name</mat-label>
-          <input matInput required formControlName="name">
-        </mat-form-field>
-
-        <mat-form-field fxFlex="grow">
-          <mat-label>E-Mail</mat-label>
+          <mat-label>{{'Email_Text' | translate}}</mat-label>
           <input matInput required formControlName="email">
+          <mat-error *ngIf="checkError('email', 'required')">{{'Email_Required_Text' | translate}}</mat-error>
+          <mat-error *ngIf="checkError('email', 'email')">{{'Not_Valid_Email_Text' | translate}}</mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="grow">
-          <mat-label>Password</mat-label>
+          <mat-label>{{'Password_Text' | translate}}</mat-label>
           <input matInput [type]="inputType" formControlName="password" required>
-          <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" matTooltip="Toggle Visibility">
-            <mat-icon *ngIf="visible">visibility</mat-icon>
-            <mat-icon *ngIf="!visible">visibility_off</mat-icon>
+          <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()">
+            <mat-icon *ngIf="visible"></mat-icon>
+            <mat-icon *ngIf="!visible"></mat-icon>
           </button>
-          <mat-hint>Click the eye to toggle visibility</mat-hint>
+          <mat-error *ngIf="checkError('password', 'required')">{{'Password_Required_Text' | translate}}</mat-error>
+          <mat-error *ngIf="checkError('password', 'minlength')">{{'Password_Min_Length_Text' | translate}}</mat-error>
+          <mat-error *ngIf="checkError('password', 'maxlength')">{{'Password_Max_Length_Text' | translate}}</mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="grow">
-          <mat-label>Password (Confirm)</mat-label>
-          <input matInput [type]="inputType" formControlName="passwordConfirm" required>
-          <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" matTooltip="Toggle Visibility">
-            <mat-icon *ngIf="visible">visibility</mat-icon>
-            <mat-icon *ngIf="!visible">visibility_off</mat-icon>
+          <mat-label>{{'Confirm_Password_Text' | translate}}</mat-label>
+          <input matInput [type]="inputType" formControlName="confirmPassword" required>
+          <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()">
+            <mat-icon *ngIf="visible"></mat-icon>
+            <mat-icon *ngIf="!visible"></mat-icon>
           </button>
-          <mat-hint>Please repeat your password from above</mat-hint>
+          <mat-error *ngIf="checkError('confirmPassword', 'required')">{{'Confirm_Password_Required_Text' | translate}}</mat-error>
+          <mat-error *ngIf="checkError('confirmPassword', 'confirm')">{{'Confirm_Password_Not_Match_Text' | translate}}</mat-error>
         </mat-form-field>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="center center">
-        <mat-checkbox class="caption">I accept the <a href="#">terms and conditions.</a></mat-checkbox>
-      </div>
-      <button type="button" color="primary" mat-raised-button (click)="send()">
-        CREATE ACCOUNT
+      <button type="submit" color="primary" mat-raised-button (click)="send()">
+        {{'Create_Account_Text' | translate}}
       </button>
       <p class="secondary-text text-center">
-        Already have an account?<br/>
-        <a [routerLink]="['/login']">Sign in here</a>
+        {{'Have_Account_Text' | translate}}<br/>
+        <a [routerLink]="['/login']">{{'Sign_In_Here_Text' | translate}}</a>
       </p>
-    </div>
+    </form>
   </div>
 </div>

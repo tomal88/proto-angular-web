@@ -33,35 +33,11 @@ export class ConfigPanelComponent implements OnInit {
     this.themeService.setTheme(theme);
   }
 
-  navigationChange(change: MatRadioChange) {
-    this.themeService.setNavigation(change.value);
-  }
-
   sidenavOpenChange(change: MatSlideToggleChange) {
     change.checked ? this.sidenavService.open() : this.sidenavService.close();
   }
 
   sidenavCollapsedChange(change: MatCheckboxChange) {
     this.sidenavService.setCollapsed(change.checked);
-  }
-
-  sidenavUserChange(change: MatCheckboxChange) {
-    this.themeService.setSidenavUserVisible(change.checked);
-  }
-
-  toolbarVisibleChange(change: MatSlideToggleChange) {
-    this.themeService.setToolbarVisible(change.checked);
-  }
-
-  toolbarPositionChange(change: MatRadioChange) {
-    this.themeService.setToolbarPosition(change.value);
-  }
-
-  footerVisibleChange(change: MatSlideToggleChange) {
-    this.themeService.setFooterVisible(change.checked);
-  }
-
-  footerPositionChange(change: MatRadioChange) {
-    this.themeService.setFooterPosition(change.value);
   }
 }

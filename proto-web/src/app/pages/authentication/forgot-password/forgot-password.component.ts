@@ -12,7 +12,7 @@ import { fadeInUpAnimation } from '../../../../theme-settings/animations/fade-in
 export class ForgotPasswordComponent implements OnInit {
 
   form = this.fb.group({
-    email: [null, Validators.required]
+    email: [null, [Validators.required, Validators.email]]
   });
 
   constructor(

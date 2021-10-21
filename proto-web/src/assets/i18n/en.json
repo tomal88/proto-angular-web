@@ -1,0 +1,23 @@
+{
+  "Email_Text": "Email",
+  "Email_Required_Text": "Email is required",
+  "Not_Valid_Email_Text": "Not a valid email address",
+  "Password_Text": "Password",
+  "Password_Required_Text": "Password is required",
+  "Password_Min_Length_Text": "Password should contain minimum 8 characters",
+  "Password_Max_Length_Text": "Password should contain maximum 32 characters",
+  "Password_Not_Match_Text": "Password doesn't match",
+  "Recover_Password_Hint_Text": "Enter your email to recover your password",
+  "Remember_Me_Text": "Remember Me",
+  "Forgot_Password_Text": "Forgot Password?",
+  "Sign_In_Text": "SIGN IN",
+  "Dont_Have_Account_Text": "Don't have an account?",
+  "Create_Account_Hint_Text": "Click here to create one",
+  "Send_Recovery_Link_Button_Text": "SEND RECOVERY LINK",
+  "Confirm_Password_Text": "Confirm Password",
+  "Create_Account_Text": "CREATE ACCOUNT",
+  "Have_Account_Text": "Already have an account?",
+  "Sign_In_Here_Text": "Sign in here",
+  "Confirm_Password_Required_Text": "Confirm password is required",
+  "Confirm_Password_Not_Match_Text": "Password doesn't match"
+}

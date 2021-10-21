@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { fadeInUpAnimation } from '../../../../theme-settings/animations/fade-in-up.animation';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'proto-login',
@@ -13,17 +13,20 @@ import { fadeInUpAnimation } from '../../../../theme-settings/animations/fade-in
 export class LoginComponent implements OnInit {
 
   form: FormGroup = this.fb.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.maxLength(32)]]
   });
 
   inputType = 'password';
   visible = false;
+  isLoading = false;
+  errorText = null;
 
-  constructor(private router: Router,
-              private fb: FormBuilder,
-              private cd: ChangeDetectorRef,
-              private snackbar: MatSnackBar
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private cd: ChangeDetectorRef,
+    private authService: AuthService
   ) {
   }
 
@@ -31,10 +34,14 @@ export class LoginComponent implements OnInit {
   }
 
   send() {
-    this.router.navigate(['/']);
-    this.snackbar.open('Lucky you! Looks like you didn\'t need a password or email address! For a real application we provide validators to prevent this. ;)', 'LOL THANKS', {
-      duration: 10000
-    });
+    this.errorText = null;
+    this.isLoading = true;
+    this.authService.signIn(this.form.value)
+      .subscribe({
+        next: _ => this.router.navigate(['/']),
+        error: e => this.errorText = e.error.message,
+        complete: () => this.isLoading = false
+      }).add(() => this.isLoading = false);
   }
 
   toggleVisibility() {

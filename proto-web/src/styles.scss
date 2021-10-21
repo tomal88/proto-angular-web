@@ -1,2 +1,8 @@
 @import "./theme-settings/styles/core.scss";
 @import "./app/app.theme.scss";
+
+.alert-danger {
+    background-color: #f8d7da;
+    padding: 8px 4px;
+    text-align: center;
+}
